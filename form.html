@@ -177,7 +177,7 @@ async function startQrPolling() {
       const responseEl = document.getElementById('schedule-response');
 
       try {
-        const res = await fetch('http://localhost:3000/schedule', {
+        const res = await fetch('https://whats-am0x.onrender.com/schedule', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({
