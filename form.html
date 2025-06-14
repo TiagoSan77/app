@@ -85,7 +85,7 @@
     // Função para buscar e exibir QR Code
     async function fetchQrCode() {
       try {
-        const res = await fetch('http://localhost:3000/qr');
+        const res = await fetch('https://whats-am0x.onrender.com/qr');
         if (!res.ok) {
           document.getElementById('qrContainer').innerHTML = '<p class="text-gray-500">QR code não disponível ou dispositivo já conectado.</p>';
           document.getElementById('qrStatus').textContent = 'Dispositivo já conectado.';
@@ -106,7 +106,7 @@ async function startQrPolling() {
     await fetchQrCode();
     const intervalId = setInterval(async () => {
       try {
-        const res = await fetch('http://localhost:3000/qr');
+        const res = await fetch('https://whats-am0x.onrender.com/qr');
         if (!res.ok) {
           clearInterval(intervalId);
           document.getElementById('qrContainer').innerHTML = 
@@ -150,7 +150,7 @@ async function startQrPolling() {
       }
 
       try {
-        const res = await fetch('http://localhost:3000/send-now', {
+        const res = await fetch('https://whats-am0x.onrender.com/send-now', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ numbers, message })
@@ -201,7 +201,7 @@ async function startQrPolling() {
     //destroi a sessão:
     document.getElementById('logoutBtn').addEventListener('click', async () => {
   try {
-    const res = await fetch('http://localhost:3000/logout', { method: 'POST' });
+    const res = await fetch('https://whats-am0x.onrender.com/logout', { method: 'POST' });
     const data = await res.json();
     alert(data.message || 'Desconectado com sucesso!');
     // Aqui você pode, por exemplo, recarregar a página para mostrar o QR novamente
